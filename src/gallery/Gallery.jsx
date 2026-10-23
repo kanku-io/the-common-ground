@@ -36,6 +36,20 @@ const handleDownload = async (photo) => {
   }
 }
 
+const handleDeleteAccount = async () => {
+  const sure = window.confirm(
+    'Delete your account? This permanently removes your details and cannot be undone.'
+  )
+  if (!sure) return
+
+  const { error } = await supabase.rpc('delete_user')
+  if (error) {
+    alert('Could not delete your account: ' + error.message)
+    return
+  }
+  await supabase.auth.signOut()
+}
+
 const Gallery = () => {
   return (
     <div className='site'>
@@ -138,6 +152,16 @@ const Gallery = () => {
         <p className='footer-small'>
           Sponsored by BOS Ice Tea · Bites by Sumthing Nice
         </p>
+
+        <p className='footer-small footer-links'>
+          <a href='/privacy.html' target='_blank' rel='noreferrer'>
+            Privacy Policy
+          </a>
+        </p>
+
+        <button className='delete-btn' onClick={handleDeleteAccount}>
+          Delete my account
+        </button>
       </footer>
     </div>
   )

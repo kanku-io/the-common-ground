@@ -137,6 +137,25 @@ body {
   background: #fff;
 }
 
+.consent {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+.consent input {
+  margin-top: 0.15rem;
+  accent-color: #DB1C1C;
+}
+
+.consent a {
+  color: #DB1C1C;
+}
+
 .submit {
   width: 100%;
   padding: 0.9rem;
@@ -196,6 +215,11 @@ body {
   letter-spacing: 2px;
   text-transform: uppercase;
   opacity: 0.85;
+}
+
+.section,
+.hero {
+  scroll-margin-top: 4rem;
 }
 
 .section {
@@ -507,6 +531,28 @@ body {
   font-size: 0.8rem !important;
 }
 
+.footer a {
+  color: #fff;
+}
+
+.delete-btn {
+  margin-top: 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.delete-btn:hover {
+  background: #fff;
+  color: #991414;
+}
+
 /* responsive */
 
 @media (max-width: 36rem) {
@@ -576,5 +622,31 @@ body {
 
   .artist-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 24rem) {
+  .nav-logo {
+    font-size: 1rem;
+  }
+
+  .nav-links button {
+    padding: 0.35rem 0.8rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(4rem, 24vw, 6rem);
+  }
+
+  .gallery-grid {
+    grid-auto-rows: 8.5rem;
+  }
+
+  .artist-grid {
+    gap: 0.75rem;
   }
 }
